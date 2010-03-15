@@ -28,9 +28,13 @@
                 <a href="javascript:toggle_comment_form({{ response.id }})">{% trans "Reply to This Post" %}</a>
                 <form class="hidden" method="post" action="{% get_comment_url object response %}" id="comment_form_{{ response.id }}">
                     {% csrf_token %}
-                    <table><tr><td><textarea rows="10" cols="40" name="comment"></textarea></td></tr>
-                    <tr><td><input type="submit" value="{% trans "Post Response" %}" /></td></tr></table>
-                    <input type="hidden" name="next" value="{{ request.path }}" />
+                    <table>
+                        <tr><td><textarea rows="10" cols="40" name="comment"></textarea></td></tr>
+                        <tr><td>
+                            <input type="submit" value="{% trans "Post Response" %}" />
+                            <input type="hidden" name="next" value="{{ request.path }}" />
+                        </td></tr>
+                    </table>
                 </form>
             </div>
         </li>
